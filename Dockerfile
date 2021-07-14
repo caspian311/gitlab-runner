@@ -8,7 +8,8 @@ RUN apt-get install -y \
     curl \
     gnupg \
     lsb-release \
-    unzip
+    unzip \
+    gettext
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 RUN curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
