@@ -31,12 +31,13 @@ Register the runner with the GitLab mother-ship:
         gitlab/gitlab-runner register \
         --non-interactive \
         --url "https://gitlab.asynchrony.com/" \
-        --registration-token "<TOKEN>" \
+        --registration-token <TOKEN> \
         --executor "docker" \
         --docker-image caspian311/gitlab-runner:1.0 \
         --run-untagged="true" \
         --locked="false" \
-        --access-level="not_protected"
+        --docker-privileged \
+        --docker-volumes /var/run/docker.sock:/var/run/docker.sock
 
 Don't forget to start the runner:
 
@@ -44,6 +45,7 @@ Don't forget to start the runner:
     $ sudo docker run -d --name gitlab-runner --restart always \
         -v /srv/gitlab-runner/config:/etc/gitlab-runner \
         -v /var/run/docker.sock:/var/run/docker.sock \
+        --privileged \
         gitlab/gitlab-runner
 
 #Good Luck!#
