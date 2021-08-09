@@ -1,0 +1,17 @@
+image: caspian311/build-box:1.0
+
+stages:
+  - test
+  - build
+  - package
+  - deploy
+
+test:api:
+  stage: test
+  image: node:latest
+  variables:
+    NODE_ENV: ci
+  script:
+    - echo $DOCKER_HUB_TOKEN | docker login --user $DOCKER_HUB_USERNAME --password-stdin
+    - docker build -t $DOCKER_HUB_USERNAME/gitlab-runner:1.0 .
+    - docker image push $DOCKER_HUB_USERNAME/gitlab-runner:1.0
