@@ -7,7 +7,7 @@ This is the GitLab runner I use because it has both Docker and NodeJS installed 
 To build and push up new images:
 
     $ docker build -t caspian311/gitlab-runner:1.0 .
-    $ docker push image caspian311/gitlab-runner:1.0
+    $ docker image push caspian311/gitlab-runner:1.0
 
 Change the version number as needed.
 

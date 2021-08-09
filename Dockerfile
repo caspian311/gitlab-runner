@@ -9,6 +9,7 @@ RUN apt-get install -y \
     gnupg \
     lsb-release \
     unzip \
+    zip \
     gettext
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
