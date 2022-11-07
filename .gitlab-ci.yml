@@ -1,6 +1,6 @@
 
 build:
   script:
-    - docker build -t $DOCKER_HUB_USERNAME/gitlab-runner:1.1 .
+    - docker build --no-cache -t $DOCKER_HUB_USERNAME/gitlab-runner:1.2 .
     - echo $DOCKER_HUB_TOKEN | docker login --username $DOCKER_HUB_USERNAME --password-stdin
-    - docker image push $DOCKER_HUB_USERNAME/gitlab-runner:1.1
+    - docker image push $DOCKER_HUB_USERNAME/gitlab-runner:1.2
